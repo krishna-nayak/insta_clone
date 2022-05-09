@@ -25,7 +25,7 @@ const App = () => {
             height: 50,
           },
 
-          tabBarIcon: ({focused, size, color}) => {
+          tabBarIcon: ({focused, size}) => {
             let iconName;
             if (route.name === 'Home') {
               iconName = focused ? 'home-sharp' : 'home-outline';
