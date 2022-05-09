@@ -1,6 +1,8 @@
 # Instagram-Clone
 
-This repo contain a clone of Instagram work on both android & IOS devies by the help of _Recat Native_. This repo conatian my progression on this Project and steps how I completed this Project.
+## This repo contain a clone of Instagram work on both android & IOS devies by the help of _Recat Native_. This repo conatian my progression on this Project and steps how I completed this Project.
+
+---
 
 ## 🗓 Day 1
 
@@ -52,3 +54,23 @@ Now, Link the newly added asset and dependences by running the following command
 ```
 npx react-native link
 ```
+
+Let test the program by run this command on terminal
+
+```
+npx react-native start
+```
+
+Now, Start the emulator for function on app
+
+```
+npx react-native run-android
+```
+
+And for IOS
+
+```
+npx react-native run-ios
+```
+
+---
