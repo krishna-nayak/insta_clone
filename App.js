@@ -8,14 +8,15 @@ import {
   Text,
   View,
 } from 'react-native';
-
+import Icon from 'react-native-vector-icons/Ionicons';
 const App = () => {
   return (
     <SafeAreaView>
       <StatusBar barStyle={'light-content'} />
       <ScrollView contentInsetAdjustmentBehavior="automatic">
         <View>
-          <Text>Hello World</Text>
+          <Text style={{fontFamily: 'Lobster-Regular'}}>Hello World</Text>
+          <Icon name="play" size={24} />
         </View>
       </ScrollView>
     </SafeAreaView>
