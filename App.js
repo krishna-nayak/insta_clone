@@ -2,6 +2,11 @@ import React from 'react';
 
 import Icon from 'react-native-vector-icons/Ionicons';
 
+import 'react-native-gesture-handler';
+
+// import {SafeAreaView} from 'react-native';
+// import {SafeAreaView} from 'react-native-safe-area-context';
+import {View} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -23,6 +28,7 @@ const App = () => {
           headerShown: false,
           tabBarStyle: {
             height: 50,
+            // position: 'absolute',
           },
 
           tabBarIcon: ({focused, size}) => {
@@ -53,11 +59,13 @@ const App = () => {
     );
   };
   return (
+    // <SafeAreaView>
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>
         <Stack.Screen name="Bottom" component={BottomTabScreen} />
       </Stack.Navigator>
     </NavigationContainer>
+    // </SafeAreaView>
   );
 };
 
