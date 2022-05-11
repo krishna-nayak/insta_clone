@@ -1,11 +1,14 @@
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
+import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
 
 const Reels = () => {
   return (
-    <View>
-      <Text>Reels Screen</Text>
-    </View>
+    <SafeAreaView>
+      <View>
+        <Text>Reels Screen</Text>
+      </View>
+    </SafeAreaView>
   );
 };
 
