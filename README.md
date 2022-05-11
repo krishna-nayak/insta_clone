@@ -100,12 +100,15 @@ Let start Coding of one file we created
 ```js
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 const Home = () => {
   return (
-    <View>
-      <Text>Home Screen</Text>
-    </View>
+    <SafeAreaView>
+      <View>
+        <Text>Home Screen</Text>
+      </View>
+    </SafeAreaView>
   );
 };
 
@@ -121,12 +124,15 @@ export default Home;
 ```js
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 const Activity = () => {
   return (
-    <View>
-      <Text>Activity Screen</Text>
-    </View>
+    <SafeAreaView>
+      <View>
+        <Text>Activity Screen</Text>
+      </View>
+    </SafeAreaView>
   );
 };
 
@@ -142,12 +148,14 @@ export default Activity;
 ```js
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-
+import {SafeAreaView} from 'react-native-safe-area-context';
 const Profile = () => {
   return (
-    <View>
-      <Text>Profile Screen</Text>
-    </View>
+    <SafeAreaView>
+      <View>
+        <Text>Profile Screen</Text>
+      </View>
+    </SafeAreaView>
   );
 };
 
@@ -163,12 +171,15 @@ export default Profile;
 ```js
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
+import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
 
 const Reels = () => {
   return (
-    <View>
-      <Text>Reels Screen</Text>
-    </View>
+    <SafeAreaView>
+      <View>
+        <Text>Reels Screen</Text>
+      </View>
+    </SafeAreaView>
   );
 };
 
@@ -184,12 +195,14 @@ export default Reels;
 ```js
 import React from 'react';
 import {View, Text, StyleSheet} from 'react-native';
-
+import {SafeAreaView} from 'react-native-safe-area-context';
 const Search = () => {
   return (
-    <View>
-      <Text>Search Screen</Text>
-    </View>
+    <SafeAreaView>
+      <View>
+        <Text>Search Screen</Text>
+      </View>
+    </SafeAreaView>
   );
 };
 
@@ -226,9 +239,6 @@ const BottomTabScreen = () => {
       screenOptions={({route}) => ({
         tabBarShowLabel: false,
         headerShown: false,
-        tabBarStyle: {
-          height: 50,
-        },
 
         tabBarIcon: ({focused, size}) => {
           let iconName;
@@ -277,10 +287,14 @@ At the end `App.js` will look like,
 import React from 'react';
 
 import Icon from 'react-native-vector-icons/Ionicons';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 
+// Navigation
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+
+// Components
 import Home from './src/screen/Home';
 import Search from './src/screen/Search';
 import Activity from './src/screen/Activity';
@@ -295,11 +309,8 @@ const App = () => {
     return (
       <Tab.Navigator
         screenOptions={({route}) => ({
-          tabBarShowLabel: false,
+          tabBarShowLabel: true,
           headerShown: false,
-          tabBarStyle: {
-            height: 50,
-          },
 
           tabBarIcon: ({focused, size}) => {
             let iconName;
@@ -329,11 +340,13 @@ const App = () => {
     );
   };
   return (
-    <NavigationContainer>
-      <Stack.Navigator screenOptions={{headerShown: false}}>
-        <Stack.Screen name="Bottom" component={BottomTabScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <Stack.Navigator screenOptions={{headerShown: false}}>
+          <Stack.Screen name="Bottom" component={BottomTabScreen} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 };
 

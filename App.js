@@ -1,14 +1,14 @@
 import React from 'react';
 
 import Icon from 'react-native-vector-icons/Ionicons';
-
-// import 'react-native-gesture-handler';
-
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 
+// Navigation
 import {NavigationContainer} from '@react-navigation/native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+
+// Components
 import Home from './src/screen/Home';
 import Search from './src/screen/Search';
 import Activity from './src/screen/Activity';
