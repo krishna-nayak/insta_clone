@@ -14,6 +14,7 @@ import Search from './src/screen/Search';
 import Activity from './src/screen/Activity';
 import Profile from './src/screen/Profile';
 import Reels from './src/screen/Reels';
+import Status from './src/components/Status';
 
 const App = () => {
   const Stack = createNativeStackNavigator();
@@ -58,6 +59,7 @@ const App = () => {
       <NavigationContainer>
         <Stack.Navigator screenOptions={{headerShown: false}}>
           <Stack.Screen name="Bottom" component={BottomTabScreen} />
+          <Stack.Screen name="Status" component={Status} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaProvider>
