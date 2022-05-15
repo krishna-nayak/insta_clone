@@ -55,7 +55,11 @@ const Stories = () => {
       showsHorizontalScrollIndicator={false}
       style={{padding: 20}}>
       {storyInfo.map((data, index) => (
-        <TouchableOpacity key={index} onPress={() => navigation.push('Status')}>
+        <TouchableOpacity
+          key={index}
+          onPress={() =>
+            navigation.push('Status', {name: data.name, image: data.image})
+          }>
           <View
             style={{
               position: 'relative',

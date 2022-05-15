@@ -352,3 +352,252 @@ const App = () => {
 
 export default App;
 ```
+
+## 🗓 Day 3
+
+Let build Home Page of Instragram. Strating with Header Bar. which will look something like this.
+
+---
+
+## Image
+
+---
+
+Building this we need to import `SafeAreaView` from `react-native-safe-area-context` package on `Home.js`. This allows you to position your content appropriately around notches, status bars, home indicators, and other such device and operating system interface elements.
+
+Then Adding `View` with the `height` of `100%`. and fontFamily as `Lobster` added in source file externally in `Day 1` with font color as `Black`
+and few more styling with style of StatusBar i.e: Component to control the app's status bar. Added some UI element form `FontAwesome` `name="plus-square-o"` and `Feather` `name="navigation"`
+
+```js
+<View
+  style={{
+    fontFamily: 'Lobster',
+    fontSize: 25,
+    fontWeight: '500',
+    color: 'black',
+  }}>
+  <StatusBar backgroundColor="white" barStyle="dark-content" animated={true} />
+  <View>
+    <View
+      style={{
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+        paddingHorizontal: 15,
+        alignItems: 'center',
+      }}>
+      <FontAwesome name="plus-square-o" size={30} color={'black'} />
+      <Text style={styles.text}>Instragram</Text>
+      <Feather name="navigation" size={30} color={'black'} />
+    </View>
+  </View>
+</View>
+```
+
+This complete the header part now Let work on Stroies component. For that `ScrollView` followed by `Stories` component.
+
+```js
+<ScrollView>
+  <Stories />
+</ScrollView>
+```
+
+At the end Home.js look like.
+
+### Home.js
+
+```js
+import React from 'react';
+import {View, Text, StatusBar, ScrollView, StyleSheet} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
+
+// Icon
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import Feather from 'react-native-vector-icons/Feather';
+
+// Components
+import Stories from '../components/Stories';
+
+const Home = () => {
+  return (
+    <SafeAreaView>
+      <View style={styles.headbar}>
+        <StatusBar
+          backgroundColor="white"
+          barStyle="dark-content"
+          animated={true}
+        />
+        <View
+          style={{
+            justifyContent: 'space-between',
+            flexDirection: 'row',
+            paddingHorizontal: 15,
+            alignItems: 'center',
+          }}>
+          <FontAwesome name="plus-square-o" size={30} color={'black'} />
+          <Text style={styles.text}>Instragram</Text>
+          <Feather name="navigation" size={30} color={'black'} />
+        </View>
+
+        <ScrollView>
+          <Stories />
+        </ScrollView>
+      </View>
+    </SafeAreaView>
+  );
+};
+
+const styles = StyleSheet.create({
+  text: {
+    fontFamily: 'Lobster',
+    fontSize: 25,
+    fontWeight: '500',
+    color: 'black',
+  },
+  headbar: {
+    backgroundColor: 'white',
+    height: '100%',
+  },
+});
+
+export default Home;
+```
+
+On component stories we will added this code.
+
+### Stories.js
+
+```js
+import React from 'react';
+import {
+  View,
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity,
+  Text,
+  Image,
+} from 'react-native';
+import Entypo from 'react-native-vector-icons/Entypo';
+
+import {useNavigation} from '@react-navigation/native';
+
+const Stories = () => {
+  const navigation = useNavigation();
+
+  const storyInfo = [
+    {
+      id: 1,
+      name: 'Your Story',
+      image: require('../storage/images/userProfile.png'),
+    },
+    {
+      id: 0,
+      name: 'Ram_Charan',
+      image: require('../storage/images/profile1.jpeg'),
+    },
+    {
+      id: 0,
+      name: 'Tom',
+      image: require('../storage/images/profile2.jpeg'),
+    },
+    {
+      id: 0,
+      name: 'The_Groot',
+      image: require('../storage/images/profile3.jpeg'),
+    },
+    ,
+    {
+      id: 0,
+      name: 'loverland',
+      image: require('../storage/images/profile4.jpeg'),
+    },
+    ,
+    {
+      id: 0,
+      name: 'chillhouse',
+      image: require('../storage/images/profile5.jpeg'),
+    },
+  ];
+
+  return (
+    <ScrollView
+      horizontal={true}
+      showsHorizontalScrollIndicator={false}
+      style={{padding: 20}}>
+      {storyInfo.map((data, index) => (
+        <TouchableOpacity key={index} onPress={() => navigation.push('Status')}>
+          <View
+            style={{
+              position: 'relative',
+              flexDirection: 'column',
+              paddingHorizontal: 8,
+            }}>
+            {data.id == 1 ? (
+              <View
+                style={{
+                  position: 'absolute',
+                  bottom: 15,
+                  right: 10,
+                  zIndex: 1,
+                  borderRadius: 100,
+                  overflow: 'hidden',
+                }}>
+                <Entypo
+                  name="circle-with-plus"
+                  style={{
+                    fontSize: 20,
+                    color: '#405de6',
+                    backgroundColor: 'white',
+                  }}
+                />
+              </View>
+            ) : null}
+            <View
+              style={{
+                width: 68,
+                height: 68,
+                backgroundColor: 'white',
+                borderWidth: 1.8,
+                borderRadius: 100,
+                borderColor: '#c13584',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}>
+              <Image
+                source={data.image}
+                style={{
+                  resizeMode: 'cover',
+                  width: '92%',
+                  height: '92%',
+                  borderRadius: 100,
+                  backgroundColor: 'orange',
+                }}
+              />
+            </View>
+            <Text
+              style={{
+                textAlign: 'center',
+                fontSize: 10,
+                opacity: data.id == 0 ? 1 : 0.5,
+                color: 'black',
+              }}>
+              {data.name}
+            </Text>
+          </View>
+        </TouchableOpacity>
+      ))}
+    </ScrollView>
+  );
+};
+
+const styles = StyleSheet.create({});
+
+export default Stories;
+```
+
+On `Status.js` component add some basic Status screen component.
+
+## Day 4
+
+Status Bar is doees not changing there color ... bug have beign detected in the App.
+
+Let solve the Probleam

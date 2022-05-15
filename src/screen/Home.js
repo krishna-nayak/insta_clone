@@ -11,30 +11,33 @@ import Stories from '../components/Stories';
 
 const Home = () => {
   return (
-    <SafeAreaView>
-      <View style={styles.headbar}>
-        <StatusBar
-          backgroundColor="white"
-          barStyle="dark-content"
-          animated={true}
-        />
-        <View
-          style={{
-            justifyContent: 'space-between',
-            flexDirection: 'row',
-            paddingHorizontal: 15,
-            alignItems: 'center',
-          }}>
-          <FontAwesome name="plus-square-o" size={30} color={'black'} />
-          <Text style={styles.text}>Instragram</Text>
-          <Feather name="navigation" size={30} color={'black'} />
-        </View>
+    <View style={styles.headbar}>
+      <StatusBar
+        backgroundColor="white"
+        barStyle="dark-content"
+        animated={true}
+      />
+      <SafeAreaView>
+        <View style={{backgroundColor: 'white'}}>
+          <View
+            style={{
+              justifyContent: 'space-between',
+              flexDirection: 'row',
+              paddingHorizontal: `8%`,
+              alignItems: 'center',
+              padding: 10,
+            }}>
+            <FontAwesome name="plus-square-o" size={30} color={'black'} />
+            <Text style={styles.text}>Instragram</Text>
+            <Feather name="navigation" size={30} color={'black'} />
+          </View>
 
-        <ScrollView>
-          <Stories />
-        </ScrollView>
-      </View>
-    </SafeAreaView>
+          <ScrollView>
+            <Stories />
+          </ScrollView>
+        </View>
+      </SafeAreaView>
+    </View>
   );
 };
 
