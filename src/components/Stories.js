@@ -53,7 +53,7 @@ const Stories = () => {
     <ScrollView
       horizontal={true}
       showsHorizontalScrollIndicator={false}
-      style={{padding: 20}}>
+      style={{padding: 1}}>
       {storyInfo.map((data, index) => (
         <TouchableOpacity
           key={index}
@@ -64,7 +64,7 @@ const Stories = () => {
             style={{
               position: 'relative',
               flexDirection: 'column',
-              paddingHorizontal: 8,
+              marginHorizontal: 7,
             }}>
             {data.id == 1 ? (
               <View
@@ -86,6 +86,7 @@ const Stories = () => {
                 />
               </View>
             ) : null}
+
             <View
               style={{
                 width: 68,
@@ -105,6 +106,7 @@ const Stories = () => {
                   height: '92%',
                   borderRadius: 100,
                   backgroundColor: 'orange',
+                  // padding: 1,
                 }}
               />
             </View>
