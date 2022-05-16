@@ -5,6 +5,7 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 // Icon
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
+import Ionic from 'react-native-vector-icons/Ionicons';
 
 // Components
 import Stories from '../components/Stories';
@@ -36,6 +37,17 @@ const Home = () => {
           <ScrollView>
             <Stories />
             <Post />
+            <View
+              style={{
+                justifyContent: 'center',
+                alignItems: 'center',
+                padding: 20,
+              }}>
+              <Ionic
+                name="ios-reload-circle-sharp"
+                style={{fontSize: 60, opacity: 0.2}}
+              />
+            </View>
           </ScrollView>
         </View>
       </SafeAreaView>
