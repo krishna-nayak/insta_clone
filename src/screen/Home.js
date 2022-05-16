@@ -8,6 +8,7 @@ import Feather from 'react-native-vector-icons/Feather';
 
 // Components
 import Stories from '../components/Stories';
+import Post from '../components/Post';
 
 const Home = () => {
   return (
@@ -34,6 +35,7 @@ const Home = () => {
 
           <ScrollView>
             <Stories />
+            <Post />
           </ScrollView>
         </View>
       </SafeAreaView>
